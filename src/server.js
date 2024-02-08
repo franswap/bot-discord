@@ -1,4 +1,4 @@
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, ActivityType } = require('discord.js');
 require('dotenv').config();
 
 const client = new Client({ 
@@ -11,8 +11,33 @@ const client = new Client({
             ],
         });
 
+
+    let status = [
+      {
+        name: "manger des pommes de terre",
+        type: ActivityType.Streaming,
+        url: "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran",
+      },
+      {
+        name: "dormir",
+        type: ActivityType.Listening,
+        url: "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran",
+      },
+      {
+        name: "jouer",
+        type: ActivityType.Watching,
+        url: "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran",
+      }
+    ]
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+
+  setInterval(() => {
+  let random = Math.floor(Math.random() * status.length);
+  client.user.setActivity(status[random])
+}, 10000)
+
 });
 
 client.on('messageCreate', (message) => {
