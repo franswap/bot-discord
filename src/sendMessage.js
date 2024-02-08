@@ -30,33 +30,6 @@ const roles = [
     }
 ]
 
-
-let status = [
-  {
-    name: "manger des pommes de terre",
-    type: ActivityType.Streaming,
-    url: "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran",
-  },
-  {
-    name: "dormir",
-    type: ActivityType.Listening,
-    url: "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran",
-  },
-  {
-    name: "jouer",
-    type: ActivityType.Watching,
-    url: "https://www.youtube.com/watch?v=xvFZjo5PgG0&ab_channel=Duran",
-  }
-]
-
-client.on('ready', async (c) => {
-  console.log(`Logged in as ${client.user.tag}!`);
-
-  setInterval(() => {
-    let random = Math.floor(Math.random() * status.length);
-    client.user.setActivity(status[random])
-  }, 10000)
-
   try {
     const channel = await client.channels.cache.get('954143287135060101');
     if(!channel) return;
@@ -77,7 +50,6 @@ client.on('ready', async (c) => {
     process.exit();
   } catch (e) { 
     console.log(e);
-  }
-});
+  };
 
 client.login(process.env.TOKEN);
