@@ -1,4 +1,4 @@
-const { Client, IntentsBitField, ActivityType } = require('discord.js');
+const { Client, IntentsBitField, ActivityType, EmbedBuilder } = require('discord.js');
 require('dotenv').config();
 
 const client = new Client({ 
@@ -67,7 +67,26 @@ client.on('interactionCreate', (interraction) => {
     var result = num1 + num2;
     interraction.reply('incroyable ' + num1 + ' + ' + num2 + ' font ' + result);
   }
+  if (interraction.commandName === 'card') {
+    const card = new EmbedBuilder()
+      .setTitle('card')
+      .setDescription('ceci est une carte')
+      .addFields(
+        {
+          name: 'one field',
+          value: 'one',
+          inline: true,
+        },
+        {
+          name: 'two field',
+          value: 'two',
+          inline: true,
+        }
+      )
+      .setColor('Random');
   
+    interraction.reply({ embeds: [card] });
+  }
 })
 
 client.login(process.env.TOKEN);
