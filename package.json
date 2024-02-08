@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "@discordjs/rest": "^2.2.0",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.1",
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "discord-bot",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
